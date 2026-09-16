@@ -1,0 +1,33 @@
+name: Fix userscript metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-userscript-metadata.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch metadata only
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('Modulr-Dupliquer-Associer-Client.user.js')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('// @version      1.9.0', '// @version      1.9.1', 1)
+          s = s.replace('https://raw.githubusercontent.com/BiggerThanTheMall/tampermonkey-ltoa/main/Modulr-Dupliquer-Associer-Client.user.js', 'https://raw.githubusercontent.com/BiggerThanTheMall/Duplique-une-fiche-client-et-l-associe-automatiquement-au-client-d-origine/main/Modulr-Dupliquer-Associer-Client.user.js')
+          p.write_text(s, encoding='utf-8')
+      - name: Commit metadata fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Modulr-Dupliquer-Associer-Client.user.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix Tampermonkey update URLs and bump version to 1.9.1"
+          git push
