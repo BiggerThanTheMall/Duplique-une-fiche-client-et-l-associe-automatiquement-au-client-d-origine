@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Modulr – Dupliquer & Associer Client
 // @namespace    https://github.com/BiggerThanTheMall/tampermonkey-ltoa
-// @version      1.9.0
+// @version      1.9.1
 // @description  Duplique une fiche client et l’associe automatiquement au client d’origine
 // @author       LTOA
 // @match        https://courtage.modulr.fr/fr/scripts/clients/clients_card.php*
@@ -12,8 +12,8 @@
 // @grant        GM_deleteValue
 // @grant        GM_addStyle
 
-// @updateURL    https://raw.githubusercontent.com/BiggerThanTheMall/tampermonkey-ltoa/main/Modulr-Dupliquer-Associer-Client.user.js
-// @downloadURL  https://raw.githubusercontent.com/BiggerThanTheMall/tampermonkey-ltoa/main/Modulr-Dupliquer-Associer-Client.user.js
+// @updateURL    https://raw.githubusercontent.com/BiggerThanTheMall/Duplique-une-fiche-client-et-l-associe-automatiquement-au-client-d-origine/main/Modulr-Dupliquer-Associer-Client.user.js
+// @downloadURL  https://raw.githubusercontent.com/BiggerThanTheMall/Duplique-une-fiche-client-et-l-associe-automatiquement-au-client-d-origine/main/Modulr-Dupliquer-Associer-Client.user.js
 // ==/UserScript==
 
 (function() {
